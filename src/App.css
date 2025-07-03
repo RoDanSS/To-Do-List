@@ -1,0 +1,6 @@
+.tareas-container {
+  display: flex;
+  flex-direction: 'repeact(3, 1fr)';
+  gap: 50px;
+  width: 100%;
+}
