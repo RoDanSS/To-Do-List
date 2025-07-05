@@ -6,18 +6,18 @@ function App() {
   const [tareas, setTareas] = useState([
     {
       id: 1,
-      nombre: 'Aprender React',
-      estado: 'Por hacer',
+      nombre: '',
+      estado: '',
     },
     {
       id: 2,
-      nombre: 'Aprender JavaScript',
-      estado: 'En progreso',
+      nombre: '',
+      estado: '',
     },
     {
       id: 3,
-      nombre: 'Aprender CSS',
-      estado: 'Por hacer',
+      nombre: '',
+      estado: '',
     },
   ])
 

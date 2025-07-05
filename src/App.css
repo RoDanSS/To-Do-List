@@ -1,6 +1,151 @@
+.list-task {
+  text-align: center;
+  color: #0077b6;
+  margin-bottom: 10px;
+}
+
+.text {
+  text-align: center;
+  color: #333;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 600px;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .text {
+    font-size: 1rem;
+    width: 98%;
+    margin: 15px auto;
+    padding: 0 5px;
+  }
+}
+
+.task {
+  color: #009688;
+  text-align: center;
+}
+
+.estate-task {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .tareas-container {
   display: flex;
-  flex-direction: 'repeact(3, 1fr)';
-  gap: 50px;
-  width: 100%;
+  gap: 40px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.estado-tarea {
+  background: #ffffffcc;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 123, 255, 0.08);
+  padding: 20px 18px;
+  min-width: 220px;
+  min-height: 200px;
+  transition: box-shadow 0.2s;
+  border: 2px solid #b3e0ff;
+}
+.estado-tarea:hover {
+  box-shadow: 0 8px 24px rgba(0, 123, 255, 0.18);
+  border-color: #009688;
+}
+
+.estado-tarea h2 {
+  color: #0077b6;
+  margin-bottom: 10px;
+}
+
+.estado-tarea div {
+  background: #e0f7fa;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 10px;
+  color: #333;
+  border-left: 4px solid #009688;
+  transition: background 0.2s, border-color 0.2s;
+}
+.estado-tarea div:active {
+  background: #b3e0ff;
+  border-color: #0077b6;
+}
+
+input[type="text"] {
+  display: block;
+  margin: 0 auto 10px auto;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 2px solid #b3e0ff;
+  outline: none;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+input[type="text"]:hover {
+  border-color: #009688;
+  box-shadow: 0 2px 8px rgba(0, 150, 136, 0.15);
+}
+
+.btn {
+  display: block;
+  margin: 0 auto 10px auto;
+  background: linear-gradient(90deg, #009688 0%, #00bcd4 100%);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.btn:hover {
+  background: linear-gradient(90deg, #0077b6 0%, #009688 100%);
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.15);
+}
+
+@media (max-width: 900px) {
+  .tareas-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .estado-tarea {
+    max-width: 95vw;
+    min-width: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .list-task {
+    font-size: 1.3rem;
+  }
+  .task {
+    font-size: 1.1rem;
+  }
+  .estado-tarea {
+    padding: 12px 6px;
+    font-size: 0.95rem;
+  }
+  .text {
+    font-size: 1rem;
+    width: 98%;
+    margin: 15px auto;
+    padding: 0 5px;
+  }
+  input[type="text"] {
+    font-size: 0.95rem;
+    padding: 6px 8px;
+    width: 98%;
+    max-width: 98vw;
+  }
+  .btn {
+    font-size: 0.95rem;
+    padding: 6px 10px;
+    width: 98%;
+    max-width: 98vw;
+  }
 }
