@@ -2,7 +2,8 @@
 
 Aplicación web interactiva para crear, visualizar y gestionar tareas en diferentes estados: **Por hacer**, **En progreso** y **Hecho**.
 
-![Captura de pantalla del proyecto] (src\assets\image.png)
+![image](https://github.com/user-attachments/assets/68533209-5a01-4aca-9cc4-128ae6f40583)
+
 
 ## 📋 Descripción
 
