@@ -107,6 +107,15 @@ input[type="text"]:hover {
   box-shadow: 0 2px 8px rgba(0, 123, 255, 0.15);
 }
 
+.tarea-seleccionable {
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s;
+}
+.tarea-seleccionable:hover {
+  background: #ffeaea;
+  border: 2px solid #e57373;
+}
+
 @media (max-width: 900px) {
   .tareas-container {
     flex-direction: column;
@@ -148,4 +157,17 @@ input[type="text"]:hover {
     width: 98%;
     max-width: 98vw;
   }
+}
+
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 18px 0 10px 0;
+  background: #b3e0ff;
+  color: #0077b6;
+  font-size: 1rem;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  margin-top: 40px;
 }

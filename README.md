@@ -1,12 +1,85 @@
-# React + Vite
+# ✅ To Do List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web interactiva para crear, visualizar y gestionar tareas en diferentes estados: **Por hacer**, **En progreso** y **Hecho**.
 
-Currently, two official plugins are available:
+![Captura de pantalla del proyecto] (src\assets\image.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📋 Descripción
 
-## Expanding the ESLint configuration
+Esta aplicación permite a los usuarios organizar sus tareas diarias de manera sencilla y visual. Puedes agregar nuevas tareas, moverlas entre diferentes estados mediante drag and drop, y eliminar una o varias tareas seleccionándolas. El diseño es moderno, responsivo y agradable a la vista, adaptándose a cualquier dispositivo.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Características principales
+
+- Interfaz limpia y centrada con fondo degradado.
+- Campo para ingresar nuevas tareas y botón para registrarlas.
+- Visualización de tareas por estado en tres columnas: `Por hacer`, `En progreso`, `Hecho`.
+- Mover tareas entre estados arrastrando y soltando.
+- Modo de eliminación múltiple: selecciona y elimina varias tareas a la vez.
+- Diseño completamente responsivo para móviles y escritorio.
+- Footer con copyright.
+
+## 🛠️ Tecnologías
+
+- **React** + **Vite**
+- **HTML5**
+- **CSS3** (con estilos personalizados y diseño centrado)
+- **JavaScript**
+
+## 🖥️ Estructura del Proyecto
+
+/to-do-list/
+├── public/
+├── src/
+│   ├── assets/
+│   │   └── image.png               # Imagen (screenshot)
+│   ├── components/
+│   │   ├── StatusTarea.jsx         # Componente de tareas por estado
+│   │   └── StatusTarea.css         # Estilos del componente de estado
+│   ├── App.jsx                     # Componente principal de la aplicación
+│   ├── App.css                     # Estilos generales de App
+│   ├── index.css                   # Estilos globales
+│   └── main.jsx                    # Punto de entrada de React
+│
+├── .gitignore                      # Archivos ignorados por Git
+├── eslint.config.js               # Configuración de ESLint
+├── index.html                      # HTML principal
+├── package.json                    # Configuración del proyecto y dependencias
+├── package-lock.json               # Registro exacto de dependencias
+├── vite.config.js                  # Configuración de Vite
+└── README.md                       # Documentación del proyecto
+
+
+
+---
+
+## 🧑‍💻 Instalación y uso
+
+1. Clona el repositorio:
+
+```bash
+git clone https://github.com/RoDanSS/To-Do-List.git
+cd to-do-list
+```
+
+2. Instala las dependencias:
+
+```bash
+npm install
+```
+
+3. Inicia la aplicación en modo desarrollo:
+
+```bash
+npm run dev
+```
+
+4. Abre tu navegador y visita:
+
+```
+http://localhost:5173
+```
+
+¡Listo! Ya puedes comenzar a gestionar tus tareas.
+
+
+

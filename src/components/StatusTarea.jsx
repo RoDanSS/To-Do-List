@@ -1,6 +1,6 @@
 import './StatusTarea.css'
 
-export default function StatusTarea({ tarea, estado, handleDrop, handleDragStart }) {
+export default function StatusTarea({ tarea, estado, handleDrop, handleDragStart, modoEliminar, seleccionadas, handleSeleccionTarea }) {
   // Permitir soltar tareas en el contenedor de estado
   const handleDragOver = (e) => {
     e.preventDefault();
@@ -20,8 +20,11 @@ export default function StatusTarea({ tarea, estado, handleDrop, handleDragStart
           tareasFiltradas.map((t) => (
             <div
               key={t.id}
-              draggable
-              onDragStart={(e) => handleDragStart(e, t)}
+              draggable={!modoEliminar}
+              onDragStart={modoEliminar ? undefined : (e) => handleDragStart(e, t)}
+              onClick={modoEliminar ? () => handleSeleccionTarea(t.id) : undefined}
+              style={modoEliminar && seleccionadas.includes(t.id) ? { background: '#ffbdbd', border: '2px solid #d32f2f' } : {}}
+              className={modoEliminar ? 'tarea-seleccionable' : ''}
             >
               <p>{t.nombre}</p>
               <p><strong>Estado:</strong> {t.estado}</p>

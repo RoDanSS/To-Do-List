@@ -22,6 +22,8 @@ function App() {
   ])
 
   const [nuevaTarea, setNuevaTarea] = useState('')
+  const [modoEliminar, setModoEliminar] = useState(false)
+  const [seleccionadas, setSeleccionadas] = useState([])
 
   // funciones drag and drop
   const handleDragStart = (e, tarea) => {
@@ -33,13 +35,31 @@ function App() {
     setTareas((prevTareas) =>
       prevTareas.map((t) => (t.id === tarea.id ? nuevaTarea : t))
     )
-  } 
+  }
+
+  // Selección y eliminación de tareas
+  const handleSeleccionTarea = (id) => {
+    if (!modoEliminar) return;
+    setSeleccionadas((prev) =>
+      prev.includes(id) ? prev.filter((sid) => sid !== id) : [...prev, id]
+    )
+  }
+
+  const eliminarSeleccionadas = () => {
+    if (tareas.length === 0) {
+      alert('Nada que eliminar');
+      return;
+    }
+    setTareas((prev) => prev.filter((t) => !seleccionadas.includes(t.id)))
+    setSeleccionadas([])
+    setModoEliminar(false)
+  }
 
   return (
     <>
       <div>
         <h1 className='list-task'>Lista de tareas</h1>
-        <p>Esta es una lista de tareas que puedes gestionar.</p>
+        <p className='text'>Esta es una lista de tareas que puedes gestionar.</p>
         <div>
           <h2 className='task'>Nueva tarea</h2>
           <input
@@ -58,44 +78,68 @@ function App() {
                 const nuevaTareaObj = {
                   id: tareas.length + 1,
                   nombre: nuevaTarea,
-                  estado: 'Por hacer', // Corregido para coincidir con los filtros
+                  estado: 'Por hacer',
                 }
                 setTareas([...tareas, nuevaTareaObj])
                 setNuevaTarea('')
               }
             }}>Registrar tarea</button>
+          <button
+            className='btn'
+            style={{background: modoEliminar ? '#e57373' : undefined, marginTop: 8}}
+            onClick={() => {
+              
+              if (tareas.every(t => !t.nombre || t.nombre.trim() === '')) {
+                alert('El elemento está vacío');
+                return;
+              }
+              setModoEliminar((prev) => !prev)
+            }}
+          >{modoEliminar ? 'Cancelar selección' : 'Eliminar tareas'}</button>
         </div>
         <div className='estate-task'>
           <h2>Estados tareas</h2>
           <div className='tareas-container'>
-            {/*{tareas.map((tarea) => (
-              <div key={tarea.id}>
-                <h3>{tarea.nombre}</h3>
-                <p>Estado: {tarea.estado}</p>
-              </div>
-            ))}*/ }
             <StatusTarea 
-            tarea={tareas} 
-            estado="Por hacer" 
-            handleDrop={handleDrop} 
-            handleDragStart={handleDragStart} 
+              tarea={tareas} 
+              estado="Por hacer" 
+              handleDrop={handleDrop} 
+              handleDragStart={handleDragStart} 
+              modoEliminar={modoEliminar}
+              seleccionadas={seleccionadas}
+              handleSeleccionTarea={handleSeleccionTarea}
             />
             <StatusTarea 
-            tarea={tareas} 
-            estado="En progreso" 
-            handleDrop={handleDrop} 
-            handleDragStart={handleDragStart} 
+              tarea={tareas} 
+              estado="En progreso" 
+              handleDrop={handleDrop} 
+              handleDragStart={handleDragStart} 
+              modoEliminar={modoEliminar}
+              seleccionadas={seleccionadas}
+              handleSeleccionTarea={handleSeleccionTarea}
             />
             <StatusTarea 
-            tarea={tareas} 
-            estado="Hecho" 
-            handleDrop={handleDrop} 
-            handleDragStart={handleDragStart} 
+              tarea={tareas} 
+              estado="Hecho" 
+              handleDrop={handleDrop} 
+              handleDragStart={handleDragStart} 
+              modoEliminar={modoEliminar}
+              seleccionadas={seleccionadas}
+              handleSeleccionTarea={handleSeleccionTarea}
             />
           </div>
+          {modoEliminar && seleccionadas.length > 0 && (
+            <button
+              className='btn'
+              style={{background: '#d32f2f', marginTop: 24, marginBottom: 0}}
+              onClick={eliminarSeleccionadas}
+            >Eliminar seleccionadas</button>
+          )}
         </div>
-        
       </div>
+      <footer className="footer">
+        © {new Date().getFullYear()} <a href="https://github.com/RoDanSS" target='_blank'>Rodolfo Salazar</a>. Proyectos personales.
+      </footer>
     </>
   )
 }
